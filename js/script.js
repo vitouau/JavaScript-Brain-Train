@@ -216,7 +216,7 @@ class Game {
       this.resetValues();
       this.ui.parentElement.classList.remove('wrong');
       this.ui.parentElement.classList.add('correct');
-      this.ui.innerHTML = 'Certo!';
+      this.ui.innerHTML = 'Correct!';
       this.score++;
       this.scoreSpan.innerHTML = this.score;
       this.last.innerHTML = '';
@@ -228,8 +228,8 @@ class Game {
       this.resetValues();
       this.ui.parentElement.classList.remove('correct');
       this.ui.parentElement.classList.add('wrong');
-      this.ui.innerHTML = 'Errado!';
-      this.last.innerHTML = `A resposta correta era: ${this.correctAnswer}`;
+      this.ui.innerHTML = 'Wrong!';
+      this.last.innerHTML = `Correct answer was: ${this.correctAnswer}`;
     }
     [...prevousQDiv.children].forEach((child, i) => {
       if (i > 2) {
