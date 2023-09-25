@@ -229,7 +229,7 @@ class Game {
       this.ui.parentElement.classList.remove('correct');
       this.ui.parentElement.classList.add('wrong');
       this.ui.innerHTML = 'Errado!';
-      this.last.innerHTML = `Resposta corre é: ${this.correctAnswer}`;
+      this.last.innerHTML = `Resposta correta é: ${this.correctAnswer}`;
     }
     [...prevousQDiv.children].forEach((child, i) => {
       if (i > 2) {
