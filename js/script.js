@@ -211,11 +211,11 @@ class Game {
     if (answerValue == this.correctAnswer) {
       correct_sfx.currentTime = 0
       correct_sfx.play()
-      prevQuestion.classList.add('certo');
+      prevQuestion.classList.add('correct');
       prevousQDiv.append(prevQuestion);
       this.resetValues();
-      this.ui.parentElement.classList.remove('errado');
-      this.ui.parentElement.classList.add('certo');
+      this.ui.parentElement.classList.remove('wrong');
+      this.ui.parentElement.classList.add('correct');
       this.ui.innerHTML = 'Certo!';
       this.score++;
       this.scoreSpan.innerHTML = this.score;
@@ -223,13 +223,13 @@ class Game {
     } else {
       wrong_sfx.currentTime = 0
       wrong_sfx.play()
-      prevQuestion.classList.add('errado');
+      prevQuestion.classList.add('wrong');
       prevousQDiv.append(prevQuestion);
       this.resetValues();
-      this.ui.parentElement.classList.remove('certo');
-      this.ui.parentElement.classList.add('errado');
+      this.ui.parentElement.classList.remove('correct');
+      this.ui.parentElement.classList.add('wrong');
       this.ui.innerHTML = 'Errado!';
-      this.last.innerHTML = `Resposta correta é: ${this.correctAnswer}`;
+      this.last.innerHTML = `Resposta corre é: ${this.correctAnswer}`;
     }
     [...prevousQDiv.children].forEach((child, i) => {
       if (i > 2) {
@@ -239,12 +239,12 @@ class Game {
   }
 
   resetGame() {
-    document.body.querySelector('.perdeu')?.remove();
+    document.body.querySelector('.game-over')?.remove();
     this.score = 0;
     this.scoreSpan.innerHTML = this.score;
     timer.textContent = 30;
-    this.ui.parentElement.classList.remove('errado');
-    this.ui.parentElement.classList.remove('certo');
+    this.ui.parentElement.classList.remove('wrong');
+    this.ui.parentElement.classList.remove('correct');
     [...prevousQDiv.children].forEach(child => {
       prevousQDiv.firstElementChild.remove();
     });
