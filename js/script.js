@@ -211,25 +211,25 @@ class Game {
     if (answerValue == this.correctAnswer) {
       correct_sfx.currentTime = 0
       correct_sfx.play()
-      prevQuestion.classList.add('correct');
+      prevQuestion.classList.add('certo');
       prevousQDiv.append(prevQuestion);
       this.resetValues();
-      this.ui.parentElement.classList.remove('wrong');
-      this.ui.parentElement.classList.add('correct');
-      this.ui.innerHTML = 'Correct!';
+      this.ui.parentElement.classList.remove('errado');
+      this.ui.parentElement.classList.add('certo');
+      this.ui.innerHTML = 'Certo!';
       this.score++;
       this.scoreSpan.innerHTML = this.score;
       this.last.innerHTML = '';
     } else {
       wrong_sfx.currentTime = 0
       wrong_sfx.play()
-      prevQuestion.classList.add('wrong');
+      prevQuestion.classList.add('errado');
       prevousQDiv.append(prevQuestion);
       this.resetValues();
-      this.ui.parentElement.classList.remove('correct');
-      this.ui.parentElement.classList.add('wrong');
-      this.ui.innerHTML = 'Wrong!';
-      this.last.innerHTML = `Correct answer was: ${this.correctAnswer}`;
+      this.ui.parentElement.classList.remove('certo');
+      this.ui.parentElement.classList.add('errado');
+      this.ui.innerHTML = 'Errado!';
+      this.last.innerHTML = `Resposta correta é: ${this.correctAnswer}`;
     }
     [...prevousQDiv.children].forEach((child, i) => {
       if (i > 2) {
@@ -239,12 +239,12 @@ class Game {
   }
 
   resetGame() {
-    document.body.querySelector('.game-over')?.remove();
+    document.body.querySelector('.perdeu')?.remove();
     this.score = 0;
     this.scoreSpan.innerHTML = this.score;
     timer.textContent = 30;
-    this.ui.parentElement.classList.remove('wrong');
-    this.ui.parentElement.classList.remove('correct');
+    this.ui.parentElement.classList.remove('errado');
+    this.ui.parentElement.classList.remove('certo');
     [...prevousQDiv.children].forEach(child => {
       prevousQDiv.firstElementChild.remove();
     });
